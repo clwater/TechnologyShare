@@ -26,4 +26,10 @@
 
 ## 五分钟快速使用
 
-1.
+1. 定义事件
+```java
+  //类名随意
+  public class EventBusMessage{}
+```
+
+2. 初始化
