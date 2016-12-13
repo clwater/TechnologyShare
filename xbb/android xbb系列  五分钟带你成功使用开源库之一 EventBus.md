@@ -28,8 +28,36 @@
 
 1. 定义事件
 ```java
+在当前包下任意位置新建该类
   //类名随意
+  //类中可以定义变量及对应的set 和get方法 方便以后扩展
   public class EventBusMessage{}
 ```
 
 2. 初始化
+```java
+在Activity中重载对应方法 注册和取消注册EventBus
+
+  @Override
+  protected void onStart() {
+      super.onStart();
+      EventBus.getDefault().register(this);
+  }
+
+  @Override
+  protected void onDestroy() {
+      super.onDestroy();
+      EventBus.getDefault().unregister(this);
+  }
+```
+
+3. 准备订阅者(用于响应事件被触发后的相应操作)
+```java
+建议放在需要操作的Activity或者Fragment中 方便UI的更新或者其它操作
+
+  //@Subscribe注解是必须的 该注解后面还会帮助我们实现更高级的使用方法 比如线程控制
+  @Subscribe
+  public void onEventBusMessagePost(EventBusMessage e){
+      Toast.makeText(this , "EventBusMessage is posted ." , Toast.LENGTH_SHORT).show();
+  }
+```
