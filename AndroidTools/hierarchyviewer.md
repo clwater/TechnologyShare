@@ -6,6 +6,8 @@
 
 Hierarchy Viewer是一个可以用来查看View的试用工具
 
+[Optimizing Your UI -官方网站 需科学上网](https://developer.android.com/studio/profile/optimize-ui.html#lint)
+
 ### 启动Hierarchy Viewer
 
 hierarchyviewer工具在sdk/tools路径下
@@ -41,3 +43,28 @@ Please use Android Device Monitor (tools/monitor) instead.
 (那些看着是空的位置 进入后会显示通知栏中的View布局)
 
 选择想要查看的进程后进入 Load View Hierarchy页面
+
+![Hierarchy Viewer 1-2](\image/1_2.png)
+
+下面对不同部分分别介绍一下
+
+![Hierarchy Viewer 1-3](\image/1_3.png)
+
+1. Save as PNG: 把这个布局的层级另存为png格式
+2. Capture Layers: 把这个布局的层级另存为psd格式
+
+  可以查看各层级的情况
+
+  ![Capture Layers](\image/1_4.png)
+
+3. Load View Hierarchy: 重新载入这个view层级图
+4. Evaluate Contrast: 查看层级布局的具体情况
+
+  ![Evaluate Contrast](\image/1_5.png)
+
+5. Display View: 在单独的一个窗口中显示所选择的view
+6. Invalidate Layout: 重绘当前窗口
+7. Request Layout: 对当前view进行layout
+8. Dump DisplayList: 使当前view输出它的显示列表到logcat中
+9. Dump Theme: 下载这个view主题的资源
+10. Profile Node: 得到measure，layout，draw的性能指示器
