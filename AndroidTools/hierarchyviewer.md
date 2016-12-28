@@ -68,3 +68,32 @@ Please use Android Device Monitor (tools/monitor) instead.
 8. Dump DisplayList: 使当前view输出它的显示列表到logcat中
 9. Dump Theme: 下载这个view主题的资源
 10. Profile Node: 得到measure，layout，draw的性能指示器
+
+![Hierarchy Viewer 1-6](\image/1_6.png)
+
+选取某个view节点可以查看选取的View的详情
+
+![Hierarchy Viewer 1-6](\image/1_7.png)
+
+关于View的渲染机制可以参考一下本人关于android View相关机制解析的文章 [Android View 相关源码分析之三 View的绘制过程 ](http://www.jianshu.com/p/8f3e45663d06)
+
+关于对应渲染时间的速度中  我么知道View绘制分为measure layout 和draw三个过程 三个点分布对应以上三个过程 分为绿 黄 红三个颜色  绿色代表该View在本view tree中速度是前50% 黄色表示后50% 而红色表示是花费时间最长的
+
+还记得最开始使用Hierarchy Viewer中上方有Inspect screenshot的按钮 可以查看当前Activity的像素情况
+
+![Inspect screenshot](\image/1_9.png)
+
+(层级十分的清晰 就不仔细解释了)
+
+解释下相关功能
+
+1. Save as PNG: 保存当前显示的页面为png格式
+2. Refresh Screenshot: 刷新像素视图和放大镜视图(右边那两个)
+3. Refresh Tree: 刷新View tree
+4. Load Overlay: 在右侧放大镜视图中中加载一个覆盖图(官网中没有给出详细的定义 主要根据相关介绍理解 略有偏差 欢迎指出)
+5. Show In Loupe: 在中间的像素视图中显示之前加载的图片
+6. Auto Refresh: 会根据下发设置的Refresh Rate的时间自动
+更新View tree
+
+
+以上
