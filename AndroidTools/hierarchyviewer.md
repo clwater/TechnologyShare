@@ -1,10 +1,10 @@
-# Android SDK tools 之一 Hierarchy Viewer
+# Android Tools 之一 Hierarchy Viewer
 
 >本系列旨在介绍一些被忽略的优质工具 毕竟 能被当做自带的工具总有些做的比较好的地方不是
 
 ## Hierarchy Viewer
 
-Hierarchy Viewer是一个可以用来查看View的试用工具
+Hierarchy Viewer是一个可以用来查看View的使用工具 android sdk中自带
 
 [Optimizing Your UI -官方网站 需科学上网](https://developer.android.com/studio/profile/optimize-ui.html#lint)
 
