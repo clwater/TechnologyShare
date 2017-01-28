@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>深度学习</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Hello World (深度学习版)</h1>
+
+<p>记一次浪潮之巅的探索过程</p>
+
+<h2 id="toc_1">几个概念</h2>
+
+<p><strong><a href="https://en.wikipedia.org/wiki/Machine_learning">机器学习</a></strong>: 机器学习想做的事情，简单的说是要从资料中归纳出有用的规则。(从数据推演结论)</p>
+
+<p><strong><a href="https://en.wikipedia.org/wiki/Deep_learning">深度学习</a></strong>：机器学习分支。利用大量数据。教会机器做人类能做的事情。</p>
+
+<p><strong>一些可用深度学习的栗子</strong>: 图像识别；语音视频；自然语言处理NLP; </p>
+
+<p><strong><a href="https://www.tensorflow.org/">Tensorflow</a></strong>: 简单理解，就是一个深度学习的框架，提供了很多好用的工具</p>
+
+<h2 id="toc_2">深度学习过程</h2>
+
+<ol>
+<li>开发工具准备</li>
+<li>得到数据集 ；</li>
+<li>数据集预处理 ； </li>
+<li>定义模型 ；<br></li>
+<li>(使用训练集训练模型  使用测试集衡量模型精确度 ) —loop的状态 n次  ；</li>
+<li>保存&amp;&amp;评估模型 ；</li>
+<li>投入实际中使用 ；</li>
+</ol>
+
+<h2 id="toc_3">hello world - 开发工具准备</h2>
+
+<ul>
+<li>install python</li>
+<li><a href="tensorflow%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85.html">install tensorflow</a> </li>
+<li>bazel</li>
+<li>sdk , ndk,</li>
+</ul>
+
+<h2 id="toc_4">Hello world - 得到数据集</h2>
+
+<p>就如编程有hello world, 深度学习有MNIST :-D</p>
+
+<p>MNIST来自<a href="http://yann.lecun.com/exdb/mnist/">Yann LeCun 的网站</a>,是一个入门级的计算机视觉数据集。它包含各种手写数字图片;也包含每一张图片对应的标签，告诉我们这个是数字几。所以，我们可以知道，一个最小完整数据包括(数字图片&amp;图片对应标签)。</p>
+
+<p><img src="pic_dl/data%20looks%20like.png" alt="data looks like"></p>
+
+<div><pre><code class="language-none">import tensorflow.examples.tutorials.mnist.input_data
+mnist = input_data.read_data_sets(&quot;MNIST_data/&quot;, one_hot=True)</code></pre></div>
+
+<h2 id="toc_5">hello world - 数据集预处理</h2>
+
+<ul>
+<li><p>处理1：</p>
+
+<ol>
+<li>下载下来的数据集被分成两部分：60000行的训练数据集（mnist.train）和10000行的测试数据集（mnist.test)；</li>
+<li>最小单位数据包括 images和labels。🌰：训练数据集的图片是 mnist.train.images ，训练数据集的标签是 mnist.train.labels</li>
+</ol></li>
+<li><p>处理2：每一张图片包含28X28个像素点。我们可以用一个28X28的数组来表示。如下图。<strong>铺平每一个数组，转换为28X28=784维度的向量，其中的每一个向量值在0-1间，代表对应像素点的强度</strong></p></li>
+</ul>
+
+<p><img src="pic_dl/data%20pre.png" alt="data pre"></p>
+
+<ul>
+<li><p>数据集想象：结合处理1，2。我们能推出数据集images部分的样子。</p>
+
+<p>🌰：mnist.train.images形状是[60000,784],如下图：</p>
+
+<p><img src="pic_dl/data%20pre%20train%20images.png" alt="data pre train images"></p></li>
+<li><p>处理3：标签是介于0到9的数字，用来描述给定图片里表示的数字。我们用除了某一位的数字是1外其余各维度数字都是0的向量表示。比如0，就是([1,0,0,0,0,0,0,0,0,0,0])</p></li>
+<li><p>数据集想象：结合处理3。我们能推出数据集labels部分的样子。</p>
+
+<p>🌰：mnist.train.labels形状是[60000,10],如下图：</p>
+
+<p><img src="pic_dl/data%20pre%20train%20labels.png" alt="data pre train labels"></p></li>
+</ul>
+
+<h2 id="toc_6">Hello world - 定义模型</h2>
+
+<h3 id="toc_7">Softmax</h3>
+
+<h3 id="toc_8">构建Softmax 回归模型</h3>
+
+<ul>
+<li><p>占位符</p>
+
+<p>我们通过为输入图像和目标输出类别创建节点，来开始构建计算图。</p>
+
+<div><pre><code class="language-none">x = tf.placeholder(&quot;float&quot;, shape=[None, 784])
+y_ = tf.placeholder(&quot;float&quot;, shape=[None, 10])</code></pre></div>
+
+<p>这里的x和y并不是特定的值，相反，他们都只是一个占位符，可以在TensorFlow运行某一计算时根据该占位符输入具体的值。</p>
+
+<p>输入图片x是一个2维的浮点数张量。这里，分配给它的shape为[None, 784]，其中784是一张展平的MNIST图片的维度。None表示其值大小不定，在这里作为第一个维度值，用以指代batch的大小，意即x的数量不定。输出类别值y_也是一个2维张量，其中每一行为一个10维的one-hot向量,用于代表对应某一MNIST图片的类别。</p>
+
+<p>虽然placeholder的shape参数是可选的，但有了它，TensorFlow能够自动捕捉因数据维度不一致导致的错误。</p></li>
+<li><p>变量</p>
+
+<p>我们现在为模型定义权重W和偏置b。可以将它们当作额外的输入量，但是TensorFlow有一个更好的处理方式：变量。一个变量代表着TensorFlow计算图中的一个值，能够在计算过程中使用，甚至进行修改。在机器学习的应用过程中，模型参数一般用Variable来表示。</p>
+
+<div><pre><code class="language-none">W = tf.Variable(tf.zeros([784,10]))
+b = tf.Variable(tf.zeros([10]))</code></pre></div>
+
+<p>我们在调用tf.Variable的时候传入初始值。在这个例子里，我们把W和b都初始化为零向量。W是一个784x10的矩阵（因为我们有784个特征和10个输出值）。b是一个10维的向量（因为我们有10个分类）。</p>
+
+<p>变量需要通过seesion初始化后，才能在session中使用。这一初始化步骤为，为初始值指定具体值（本例当中是全为零），并将其分配给每个变量,可以一次性为所有变量完成此操作。</p>
+
+<div><pre><code class="language-none">sess.run(tf.initialize_all_variables())</code></pre></div></li>
+<li><p>构建 ! 只需要一行</p>
+
+<p>实现我们的回归模型。我们把向量化后的图片x和权重矩阵W相乘，加上偏置b，然后计算每个分类的softmax概率值</p>
+
+<div><pre><code class="language-none">y = tf.nn.softmax(tf.matmul(x,W) + b)</code></pre></div></li>
+</ul>
+
+<h2 id="toc_9">Hello world - 训练模型</h2>
+
+<ul>
+<li><p>在训练模型前，我们需要添加一个操作来初始化我们创建的变量：</p>
+
+<div><pre><code class="language-none">init = tf.initialize_all_variables()</code></pre></div></li>
+<li><p>现在我们可以在一个Session里面启动我们的模型，并且初始化变量：</p>
+
+<div><pre><code class="language-none">sess = tf.Session()
+sess.run(init)</code></pre></div></li>
+<li><p>然后开始训练模型，这里我们让模型循环训练1000次！</p>
+
+<div><pre><code class="language-none">for i in range(1000):
+batch_xs, batch_ys = mnist.train.next_batch(100)
+sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})</code></pre></div>
+
+<p>该循环的每个步骤中，我们都会随机抓取训练数据中的100个批处理数据点，然后我们用这些数据点作为参数替换之前的占位符来运行train_step。</p></li>
+</ul>
+
+<h2 id="toc_10">hello world - 评估&amp;保存模型</h2>
+
+<ul>
+<li><p>评估模型 </p>
+
+<div><pre><code class="language-none">correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, &quot;float&quot;))
+print sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels})</code></pre></div></li>
+<li><p>保存模型</p>
+
+<div><pre><code class="language-none"># Create some variables.
+v1 = tf.Variable(..., name=&quot;v1&quot;)
+v2 = tf.Variable(..., name=&quot;v2&quot;)
+..
+# Add an op to initialize the variables.
+init_op = tf.global_variables_initializer()
+
+# Add ops to save and restore all the variables.
+saver = tf.train.Saver()
+
+# Later, launch the model, initialize the variables,   do some work, save the
+# variables to disk.
+with tf.Session() as sess:
+sess.run(init_op)
+# Do some work with the model.
+..
+# Save the variables to disk.
+save_path = saver.save(sess, &quot;/tmp/model.ckpt&quot;)
+print(&quot;Model saved in file: %s&quot; % save_path)</code></pre></div></li>
+</ul>
+
+<p>run ~ ~ </p>
+
+<h2 id="toc_11">hello world - 投入实际中使用</h2>
+
+<ul>
+<li><p>移植tensorflow到android平台(通过bazel构建)，详细指导参见
+<a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android">github-tensorflow-android</a></p>
+
+<p><a href="tensorflow%E7%A7%BB%E6%A4%8D%E5%88%B0Android%E4%B8%8A.html">个人移植过程整理</a>  </p></li>
+</ul>
+
+<h2 id="toc_12">参考&amp;学习推荐</h2>
+
+<ul>
+<li><a href="https://www.tensorflow.org/tutorials/mnist/beginners/">Tensorlflow官网-MNIST For ML Beginners</a></li>
+<li><a href="https://www.tensorflow.org/tutorials/mnist/pros/">Tensorlflow官网-Deep MNIST for Experts</a></li>
+<li><a href="https://www.tensorflow.org/">Tensorlflow官网</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/tensorflow-zh/">Tensorflow官方文档中文版</a></li>
+<li><a href="https://github.com/tensorflow/tensorflow">Tensorflow github</a></li>
+<li><a href="http://cn.udacity.com/">Udacity深度学习教程-使用tensorflow演示</a></li>
+<li><a href="http://cn.udacity.com/">Udacity机器学习教程</a></li>
+<li><a href="http://www.bilibili.com/video/av6642102/">TF Girls 修炼指南-出自B站,2333333~~~</a></li>
+<li><a href="https://github.com/CreatCodeBuild/TensorFlow-Chinese-Tutorial">TF Girls 修炼指南by哲的王-github</a></li>
+<li><a href="http://www.cnblogs.com/subconscious/p/4107357.html">一篇能解惑机器学习/深度学习/AI的好文</a></li>
+<li><a href="https://my.oschina.net/u/1431433/blog/687393">跟我上手深度学习: 五分钟尝试第一个深度学习(Caffe)训练和图像分类(详细图文步骤)</a></li>
+<li><a href="https://www.zhihu.com/question/20691338">ML more</a></li>
+<li><a href="https://www.zhihu.com/question/26006703">DL more</a></li>
+</ul>
+
+
+
+
+</body>
+
+</html>
